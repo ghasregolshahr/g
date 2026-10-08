@@ -1,0 +1,38 @@
+@layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
+      }
+      body {
+        background-color: #0c0f17;
+        color: #dfe2ee;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0c0f17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #31353e;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+    .gold-border-glow {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #f2ca50 0%, #d4af37 50%, #b89326 100%);
+    }
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #ffe088 0%, #f2ca50 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
