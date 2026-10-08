@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>قصر گلشهر | املاک سلطنتی زنجان</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
+      }
+      body {
+        background-color: #0c0f17;
+        color: #dfe2ee;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0c0f17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #31353e;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d4af37;
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+    .gold-border-glow {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #f2ca50 0%, #d4af37 50%, #b89326 100%);
+    }
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #ffe088 0%, #f2ca50 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f2ca50",
+            "primary-container": "#d4af37",
+            "on-primary": "#241a00",
+            "surface": "#0c0f17",
+            "surface-container": "#151922",
+            "surface-container-high": "#1e2330",
+            "surface-container-highest": "#282e3f",
+            "surface-container-low": "#10141d",
+            "surface-container-lowest": "#080a0f",
+            "on-surface": "#dfe2ee",
+            "on-surface-variant": "#9ba3b8",
+            "outline": "#454c5e",
+            "error": "#ff6b6b"
+          },
+          fontFamily: {
+            sans: ['Vazirmatn', 'Plus Jakarta Sans', 'sans-serif'],
+            display: ['Bodoni Moda', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col selection:bg-primary/20 selection:text-primary">
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-surface-container-lowest/85 backdrop-blur-xl border-b border-primary/20 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+<!-- LOGO & TITLE -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-11 h-11 rounded-full p-0.5 gold-gradient-bg shadow-[0_0_15px_rgba(212,175,55,0.4)] flex items-center justify-center transition-transform group-hover:scale-105">
+<div class="w-full h-full bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">castle</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">قصر گلشهر</span>
+<span class="text-[11px] text-primary/80 font-medium">املاک سلطنتی زنجان</span>
+</div>
+</a>
+<!-- NAVIGATION TABS -->
+<nav class="hidden md:flex items-center gap-1 bg-surface-container/70 border border-outline/30 px-3 py-1.5 rounded-full backdrop-blur-md">
+<a class="px-4 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:text-white hover:bg-surface-container-highest transition-all" href="#featured-section" onclick="filterTab('خرید')">خرید</a>
+<a class="px-4 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:text-white hover:bg-surface-container-highest transition-all" href="#featured-section" onclick="filterTab('فروش')">فروش</a>
+<a class="px-4 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:text-white hover:bg-surface-container-highest transition-all" href="#featured-section" onclick="filterTab('رهن و اجاره')">رهن و اجاره</a>
+<a class="px-4 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:text-white hover:bg-surface-container-highest transition-all" href="#consultation-section">کارشناسی</a>
+<a class="px-4 py-1.5 rounded-full text-sm font-medium text-on-surface-variant hover:text-white hover:bg-surface-container-highest transition-all" href="#contact-section">تماس با ما</a>
+</nav>
+<!-- AUTH BUTTON / ADMIN PROFILE -->
+<div class="flex items-center gap-3">
+<!-- Not Logged In View -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-on-primary gold-gradient-bg shadow-[0_2px_12px_rgba(212,175,55,0.35)] hover:brightness-110 active:scale-95 transition-all" id="headerLoginBtn" onclick="openLoginModal()">
+<span class="material-symbols-outlined text-lg">admin_panel_settings</span>
+<span>ورود (ادمین)</span>
+</button>
+<!-- Logged In Admin View (Initially Hidden) -->
+<div class="hidden items-center gap-2" id="headerAdminLogged">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-container-high border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-xs text-primary font-medium">samane8787</span>
+</div>
+<button class="p-2 rounded-xl bg-surface-container hover:bg-red-500/20 text-on-surface-variant hover:text-red-400 transition-colors" onclick="logoutAdmin()" title="خروج از حساب">
+<span class="material-symbols-outlined text-lg">logout</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-20">
+<!-- HERO SECTION -->
+<section class="relative min-h-[580px] flex items-center justify-center overflow-hidden py-16">
+<!-- Dark Luxury Ambient Layers -->
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(212,175,55,0.18),rgba(12,15,23,0)_70%)] pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/60 via-surface to-surface pointer-events-none"></div>
+<div class="absolute -top-40 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-5xl mx-auto px-4 text-center flex flex-col items-center">
+<!-- Golden Tag -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high/90 border border-primary/30 mb-6 backdrop-blur-md shadow-md">
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs sm:text-sm font-semibold text-primary tracking-wide">دپارتمان املاک سلطنتی قصر گلشهر زنجان</span>
+</div>
+<!-- Headline -->
+<h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight sm:leading-snug tracking-tight mb-6 max-w-4xl">
+          انتخاب و خرید ملک در <span class="gold-text-gradient">زنجان و گلشهر</span> با اصالت و شکوه ماندگار
+        </h1>
+<p class="text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-8">
+          مشاوره حرفه‌ای، ارزیابی تخصصی و معاملات مطمئن انواع پنت‌هاوس، عمارت‌های ویلایی و واحدهای نوساز با ضمانت صحت اسناد ملکی.
+        </p>
+<!-- Quick Action Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="px-7 py-3 rounded-xl font-bold text-sm sm:text-base text-on-primary gold-gradient-bg shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:brightness-110 active:scale-95 transition-all flex items-center gap-2" href="#featured-section">
+<span class="material-symbols-outlined">explore</span>
+<span>مشاهده ملک‌های پیشنهادی</span>
+</a>
+<a class="px-6 py-3 rounded-xl font-semibold text-sm sm:text-base bg-surface-container-high border border-outline/40 text-on-surface hover:border-primary/60 hover:text-primary transition-all flex items-center gap-2" href="tel:09104784166">
+<span class="material-symbols-outlined text-primary">call</span>
+<span dir="ltr">۰۹۱۰ ۴۷۸ ۴۱۶۶</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ADMIN MANAGEMENT PANEL (Visible only when logged in as samane8787) -->
+<section class="hidden max-w-6xl mx-auto px-4 sm:px-6 py-8 transition-all" id="adminDashboardSection">
+<div class="bg-surface-container border border-primary/30 rounded-2xl p-6 sm:p-8 gold-glow relative overflow-hidden">
+<!-- Welcome Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-outline/30 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl gold-gradient-bg text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-2xl">shield_person</span>
+</div>
+<div>
+<h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                پنل مدیریت املاک قصر گلشهر
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30">مدیر ارشد</span>
+</h2>
+<p class="text-xs sm:text-sm text-primary/90 mt-0.5">خوش آمدید <span class="font-mono font-bold">samane8787</span></p>
+</div>
+</div>
+<button class="self-start sm:self-auto px-4 py-2 rounded-xl bg-surface-container-highest hover:bg-red-500/20 text-on-surface-variant hover:text-red-400 border border-outline/40 text-xs font-semibold flex items-center gap-1.5 transition-all" onclick="logoutAdmin()">
+<span class="material-symbols-outlined text-base">logout</span>
+<span>خروج از حساب</span>
+</button>
+</div>
+<!-- Section Action Header -->
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">add_business</span>
+<h3 class="text-lg font-bold text-white">ثبت آگهی جدید ملک</h3>
+</div>
+<span class="text-xs text-on-surface-variant">تمامی فیلدها را با دقت تکمیل فرمایید</span>
+</div>
+<!-- Property Registration Form -->
+<form class="grid grid-cols-1 md:grid-cols-12 gap-5" id="propertyRegisterForm" onsubmit="handlePropertySubmit(event)">
+<!-- Category Selection -->
+<div class="md:col-span-12 flex flex-col gap-2">
+<label class="text-xs sm:text-sm font-semibold text-primary">دسته‌بندی نوع معامله <span class="text-red-400">*</span></label>
+<div class="grid grid-cols-3 gap-3 max-w-lg">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="dealCategory" type="radio" value="رهن و اجاره"/>
+<div class="p-3 text-center rounded-xl border border-outline/50 bg-surface-container-high peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all text-xs sm:text-sm font-semibold">
+                  رهن و اجاره
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="dealCategory" type="radio" value="خرید"/>
+<div class="p-3 text-center rounded-xl border border-outline/50 bg-surface-container-high peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all text-xs sm:text-sm font-semibold">
+                  خرید
+                </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="dealCategory" type="radio" value="فروش"/>
+<div class="p-3 text-center rounded-xl border border-outline/50 bg-surface-container-high peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary transition-all text-xs sm:text-sm font-semibold">
+                  فروش
+                </div>
+</label>
+</div>
+</div>
+<!-- Property Code -->
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="formPropCode">کد آگهی / شناسه ملک (دلخواه)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all font-mono" id="formPropCode" placeholder="مثلاً: QG-102" type="text"/>
+<span class="material-symbols-outlined text-primary/60 absolute left-3 top-2.5 text-lg">tag</span>
+</div>
+</div>
+<!-- Price -->
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="formPropPrice">قیمت ملک (آزاد) <span class="text-red-400">*</span></label>
+<input class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all" id="formPropPrice" placeholder="مثلاً: ۳ میلیارد و ۴۰۰ میلیون یا رهن ۵۰۰، اجاره ۱۵" required="" type="text"/>
+</div>
+<!-- Address -->
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="formPropAddress">آدرس ملک در زنجان <span class="text-red-400">*</span></label>
+<input class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all" id="formPropAddress" placeholder="مثلاً: زنجان، گلشهر فاز ۳، خیابان شورا" required="" type="text"/>
+</div>
+<!-- General Details -->
+<div class="md:col-span-8 flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="formPropDetails">مشخصات کلی ملک (متراژ، کاربری، طبقه، سال ساخت و توضیحات) <span class="text-red-400">*</span></label>
+<textarea class="w-full bg-surface-container-high border border-outline/40 rounded-xl p-3 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all" id="formPropDetails" placeholder="مثلاً: ۱۳۵ متر، طبقه ۴ از ۶، ساخت ۱۴۰۲، نورگیر عالی، کابینت ممبران، سند تک‌برگ..." required="" rows="3"></textarea>
+</div>
+<!-- Bedroom Count -->
+<div class="md:col-span-4 flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="formPropRooms">تعداد خواب</label>
+<select class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-primary transition-all" id="formPropRooms">
+<option value="بدون خواب / تک واحدی">بدون خواب / تجاری</option>
+<option value="۱ خواب">۱ خواب</option>
+<option selected="" value="۲ خواب">۲ خواب</option>
+<option value="۳ خواب">۳ خواب</option>
+<option value="۴ خواب و بیشتر">۴ خواب و بیشتر</option>
+</select>
+</div>
+<!-- Amenities (Parking, Yard, Elevator) -->
+<div class="md:col-span-12 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+<!-- Parking -->
+<div class="p-3.5 rounded-xl bg-surface-container-high border border-outline/30 flex items-center justify-between">
+<span class="text-xs sm:text-sm font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">local_parking</span>
+<span>پارکینگ</span>
+</span>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary" name="parkingOption" type="radio" value="دارد"/>
+<span>دارد</span>
+</label>
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input class="text-primary focus:ring-primary" name="parkingOption" type="radio" value="ندارد"/>
+<span>ندارد</span>
+</label>
+</div>
+</div>
+<!-- Yard -->
+<div class="p-3.5 rounded-xl bg-surface-container-high border border-outline/30 flex items-center justify-between">
+<span class="text-xs sm:text-sm font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">yard</span>
+<span>حیاط</span>
+</span>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input class="text-primary focus:ring-primary" name="yardOption" type="radio" value="دارد"/>
+<span>دارد</span>
+</label>
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary" name="yardOption" type="radio" value="ندارد"/>
+<span>ندارد</span>
+</label>
+</div>
+</div>
+<!-- Elevator -->
+<div class="p-3.5 rounded-xl bg-surface-container-high border border-outline/30 flex items-center justify-between">
+<span class="text-xs sm:text-sm font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">elevator</span>
+<span>آسانسور</span>
+</span>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary" name="elevatorOption" type="radio" value="دارد"/>
+<span>دارد</span>
+</label>
+<label class="flex items-center gap-1 text-xs cursor-pointer">
+<input class="text-primary focus:ring-primary" name="elevatorOption" type="radio" value="ندارد"/>
+<span>ندارد</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Image Upload & Preview -->
+<div class="md:col-span-12 flex flex-col gap-2 pt-2">
+<label class="text-xs font-semibold text-on-surface">عکس مورد نظر برای آگهی</label>
+<div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-xl bg-surface-container-high border border-dashed border-outline/60">
+<div class="w-32 h-24 rounded-lg bg-surface-container-lowest border border-outline/40 overflow-hidden relative flex items-center justify-center flex-shrink-0">
+<img alt="پیش‌نمایش تصویر" class="w-full h-full object-cover" id="imagePreviewElement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaf293cPT2vkdHSo90Y7NagwjUc4Av6wMGvoZ34YnUQCmnQ4QvoqNOdOewrneyHMW6gsQ0rgl_AnF2ArnchBOMvElmy-TdGLQgtpLOj7swkUAZcN8v6M6gO99JpiCqxFUL5teERc1n4swGj8koRtG3XRG59Kotuj-wMwKTefuYXRxw4BeNrEWjXS_Y8wmF9_MXdOW08YZMyw1mvD2shN1AAILL_cHO-x6YbIfUVZkoWL7KRuy7tIUFiA"/>
+<span class="absolute bottom-1 right-1 text-[10px] bg-black/75 px-1.5 py-0.5 rounded text-primary">پیش‌نمایش</span>
+</div>
+<div class="flex-grow flex flex-col gap-2 w-full">
+<div class="flex flex-wrap items-center gap-3">
+<label class="px-4 py-2 rounded-xl bg-surface-container-highest hover:bg-primary/20 hover:text-primary text-xs font-semibold cursor-pointer border border-outline/40 transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">upload_file</span>
+<span>انتخاب فایل عکس از دستگاه</span>
+<input accept="image/*" class="hidden" id="imageFileInput" onchange="handleImageFileChange(event)" type="file"/>
+</label>
+<button class="text-xs text-primary hover:underline" onclick="setDefaultLuxuryImage()" type="button">استفاده از تصویر نمونه مجلل</button>
+</div>
+<p class="text-[11px] text-on-surface-variant">در صورت عدم انتخاب تصویر، تصویر لوکس متناسب به صورت خودکار تخصیص می‌یابد.</p>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="md:col-span-12 pt-4">
+<button class="w-full py-3.5 rounded-xl font-bold text-base text-on-primary gold-gradient-bg shadow-[0_4px_25px_rgba(212,175,55,0.4)] hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined font-bold">check_circle</span>
+<span>ثبت نهایی آگهی در قصر گلشهر</span>
+</button>
+</div>
+</form>
+<!-- Notification Banner -->
+<div class="hidden mt-6 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-sm flex items-center gap-3" id="formSuccessAlert">
+<span class="material-symbols-outlined text-emerald-400">task_alt</span>
+<span id="formSuccessMsg">آگهی با موفقیت ثبت شد و در لیست ملک‌های پیشنهادی قرار گرفت.</span>
+</div>
+</div>
+</section>
+<!-- FEATURED PROPERTIES SECTION (ملک‌های پیشنهادی) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="featured-section">
+<!-- Section Title & Tabs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-4 border-b border-outline/20">
+<div>
+<div class="inline-flex items-center gap-1.5 text-primary text-xs font-bold mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">villa</span>
+<span>ویترین اختصاصی قصر گلشهر</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold text-white">ملک‌های پیشنهادی</h2>
+</div>
+<!-- Filter Category Tabs -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-primary text-on-primary transition-all shadow-sm" data-filter="همه" onclick="filterTab('همه')">
+            همه موارد
+          </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="رهن و اجاره" onclick="filterTab('رهن و اجاره')">
+            رهن و اجاره
+          </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="خرید" onclick="filterTab('خرید')">
+            خرید
+          </button>
+<button class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-surface-container text-on-surface-variant hover:text-white transition-all" data-filter="فروش" onclick="filterTab('فروش')">
+            فروش
+          </button>
+</div>
+</div>
+<!-- EMPTY STATE PLACEHOLDER (Default state as requested) -->
+<div class="p-12 sm:p-16 rounded-2xl bg-surface-container border border-outline/30 text-center flex flex-col items-center justify-center max-w-2xl mx-auto" id="emptyPropertiesPlaceholder">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border border-primary/30 flex items-center justify-center mb-6 text-primary shadow-inner">
+<span class="material-symbols-outlined text-4xl">real_estate_agent</span>
+</div>
+<h3 class="text-lg sm:text-xl font-bold text-white mb-2">در حال حاضر هیچ آگهی ثبت نشده است</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed max-w-md">
+          آگهی‌ها پس از بررسی و ثبت توسط مدیریت در این بخش قرار می‌گیرند. مدیران محترم می‌توانند از طریق دکمه «ورود (ادمین)» در بالای صفحه، آگهی جدید ثبت نمایند.
+        </p>
+<button class="mt-6 px-5 py-2.5 rounded-xl bg-surface-container-highest hover:bg-primary/20 text-primary border border-primary/30 text-xs font-semibold flex items-center gap-2 transition-all" onclick="openLoginModal()">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span>ورود به پنل و ثبت اولین آگهی</span>
+</button>
+</div>
+<!-- PROPERTY CARDS GRID (Populates dynamically via JavaScript) -->
+<div class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="propertiesGrid">
+<!-- New property cards will be appended here -->
+</div>
+</section>
+<!-- CONSULTATION & APPRAISAL SECTION (کارشناسی) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="consultation-section">
+<div class="rounded-2xl bg-gradient-to-r from-surface-container to-surface-container-high border border-outline/30 p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 text-primary text-xs font-bold mb-3">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>دپارتمان کارشناسی قیمت و سند</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">کارشناسی دقیق و قیمت‌گذاری منصفانه املاک در زنجان</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+            پیش از هرگونه خرید، فروش یا رهن، ارزش واقعی ملک خود در فازهای ۱ تا ۵ گلشهر و سایر مناطق زنجان را با تحلیل کارشناسان رسمی قصر گلشهر ارزیابی کنید.
+          </p>
+</div>
+<a class="px-6 py-3.5 rounded-xl font-bold text-sm text-on-primary gold-gradient-bg shadow-lg hover:brightness-110 flex items-center gap-2.5 whitespace-nowrap" href="tel:09104784166">
+<span class="material-symbols-outlined">support_agent</span>
+<span>درخواست کارشناسی و مشاوره</span>
+</a>
+</div>
+</section>
+<!-- CONTACT & WAYS OF COMMUNICATION (راه‌های ارتباطی با قصر گلشهر) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="contact-section">
+<div class="text-center mb-12">
+<span class="text-xs font-bold text-primary uppercase tracking-wider">پل‌های ارتباطی مستقیم</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">راه‌های ارتباطی با قصر گلشهر</h2>
+<p class="text-sm text-on-surface-variant mt-2">همواره آماده پاسخگویی و میزبانی از شما سروران گرامی هستیم</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Phone Card -->
+<a class="group p-6 rounded-2xl bg-surface-container border border-outline/30 hover:border-primary/50 transition-all flex flex-col items-center text-center" href="tel:09104784166">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
+<span class="material-symbols-outlined text-2xl">phone_in_talk</span>
+</div>
+<h4 class="text-base font-bold text-white mb-1">تلفن مستقیم مدیریت و مشاوره</h4>
+<p class="text-xs text-on-surface-variant mb-4">پاسخگویی همه‌روزه از ۹ صبح الی ۲۲ شب</p>
+<span class="text-lg font-bold text-primary font-mono tracking-wider" dir="ltr">0910 478 4166</span>
+</a>
+<!-- Address Card -->
+<div class="group p-6 rounded-2xl bg-surface-container border border-outline/30 hover:border-primary/50 transition-all flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+</div>
+<h4 class="text-base font-bold text-white mb-1">دفتر مرکزی قصر گلشهر</h4>
+<p class="text-xs text-on-surface-variant mb-4">میزبانی VIP جلسات و تنظیم قراردادها</p>
+<span class="text-sm font-semibold text-white leading-relaxed">استان زنجان، شهر زنجان، منطقه گلشهر</span>
+</div>
+<!-- Instagram Card -->
+<a class="group p-6 rounded-2xl bg-surface-container border border-outline/30 hover:border-primary/50 transition-all flex flex-col items-center text-center" href="https://instagram.com/ghasre_golshahr" rel="noopener noreferrer" target="_blank">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-md">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+<h4 class="text-base font-bold text-white mb-1">اینستاگرام رسمی قصر گلشهر</h4>
+<p class="text-xs text-on-surface-variant mb-4">مشاهده ویدیوها و تورهای مجازی املاک</p>
+<span class="text-base font-bold text-primary font-mono" dir="ltr">@ghasre_golshahr</span>
+</a>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="bg-surface-container-lowest border-t border-outline/20 pt-10 pb-8 mt-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-white">قصر گلشهر زنجان</span>
+<span class="text-xs text-on-surface-variant">| دپارتمان تخصصی املاک و سرمایه‌گذاری</span>
+</div>
+<div class="text-xs text-on-surface-variant">
+        تمامی حقوق محفوظ است © قصر گلشهر | همراه: <a class="text-primary hover:underline font-mono" dir="ltr" href="tel:09104784166">09104784166</a>
+</div>
+</div>
+</footer>
+<!-- ADMIN LOGIN MODAL -->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4" id="loginModal">
+<div class="bg-surface-container border border-primary/30 rounded-2xl max-w-md w-full p-6 sm:p-8 gold-glow relative animate-scaleUp">
+<!-- Close Button -->
+<button class="absolute top-4 left-4 p-1.5 rounded-lg text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors" onclick="closeLoginModal()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+<!-- Modal Header -->
+<div class="flex items-center gap-3 mb-6">
+<div class="w-11 h-11 rounded-xl gold-gradient-bg text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-2xl">lock</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white">ورود مدیریت املاک قصر گلشهر</h3>
+<p class="text-xs text-on-surface-variant">دسترسی اختصاصی ثبت و مدیریت آگهی‌ها</p>
+</div>
+</div>
+<!-- Login Form (Inputs strictly empty by default) -->
+<form class="space-y-4" id="loginForm" onsubmit="handleLoginSubmit(event)">
+<!-- Username -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1.5" for="adminUsernameInput">نام کاربری مدیریت:</label>
+<div class="relative">
+<input autocomplete="off" class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all font-mono" id="adminUsernameInput" placeholder="نام کاربری خود را وارد کنید..." required="" type="text"/>
+<span class="material-symbols-outlined text-on-surface-variant/60 absolute left-3 top-2.5 text-lg">person</span>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1.5" for="adminPasswordInput">کلمه عبور امنیتی:</label>
+<div class="relative">
+<input autocomplete="off" class="w-full bg-surface-container-high border border-outline/40 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-on-surface-variant/40 focus:outline-none focus:border-primary transition-all font-mono" id="adminPasswordInput" placeholder="رمز عبور خود را وارد کنید..." required="" type="password"/>
+<span class="material-symbols-outlined text-on-surface-variant/60 absolute left-3 top-2.5 text-lg">key</span>
+</div>
+</div>
+<!-- Error Feedback Area -->
+<div class="hidden p-3 rounded-xl bg-red-950/50 border border-red-500/40 text-red-300 text-xs flex items-center gap-2" id="loginErrorAlert">
+<span class="material-symbols-outlined text-base text-red-400">error</span>
+<span id="loginErrorText">اطلاعات ورود نامعتبر است! لطفاً مجدداً بررسی فرمایید.</span>
+</div>
+<!-- Submit Button -->
+<button class="w-full mt-2 py-3 rounded-xl font-bold text-sm text-on-primary gold-gradient-bg shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-base">login</span>
+<span>ورود به پنل ادمین</span>
+</button>
+</form>
+</div>
+</div>
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    // System Constants as strictly required
+    const AUTH_USERNAME = "samane8787";
+    const AUTH_PASSWORD = "Ss@mm13891389";
+
+    // Application State
+    let currentAuthUser = null;
+    let registeredProperties = [];
+    let currentActiveFilter = "همه";
+    let selectedImageBase64 = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80";
+
+    // MODAL CONTROLS
+    function openLoginModal() {
+      const modal = document.getElementById('loginModal');
+      const userInput = document.getElementById('adminUsernameInput');
+      const passInput = document.getElementById('adminPasswordInput');
+      const errBox = document.getElementById('loginErrorAlert');
+
+      // Ensure fields are completely empty on open
+      userInput.value = '';
+      passInput.value = '';
+      errBox.classList.add('hidden');
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      userInput.focus();
+    }
+
+    function closeLoginModal() {
+      const modal = document.getElementById('loginModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // AUTHENTICATION LOGIC
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const userInput = document.getElementById('adminUsernameInput').value.trim();
+      const passInput = document.getElementById('adminPasswordInput').value.trim();
+      const errBox = document.getElementById('loginErrorAlert');
+      const errText = document.getElementById('loginErrorText');
+
+      if (userInput === AUTH_USERNAME && passInput === AUTH_PASSWORD) {
+        // Success
+        currentAuthUser = userInput;
+        errBox.classList.add('hidden');
+        closeLoginModal();
+        activateAdminView();
+      } else {
+        // Failure
+        errText.textContent = 'نام کاربری یا رمز عبور اشتباه است! لطفا دوباره تلاش کنید.';
+        errBox.classList.remove('hidden');
+      }
+    }
+
+    function activateAdminView() {
+      // Toggle Header View
+      document.getElementById('headerLoginBtn').classList.add('hidden');
+      document.getElementById('headerAdminLogged').classList.remove('hidden');
+      document.getElementById('headerAdminLogged').classList.add('flex');
+
+      // Reveal Dashboard Section
+      const dash = document.getElementById('adminDashboardSection');
+      dash.classList.remove('hidden');
+      dash.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function logoutAdmin() {
+      currentAuthUser = null;
+      document.getElementById('headerLoginBtn').classList.remove('hidden');
+      document.getElementById('headerAdminLogged').classList.add('hidden');
+      document.getElementById('headerAdminLogged').classList.remove('flex');
+      document.getElementById('adminDashboardSection').classList.add('hidden');
+    }
+
+    // IMAGE UPLOAD HANDLER
+    function handleImageFileChange(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          selectedImageBase64 = evt.target.result;
+          document.getElementById('imagePreviewElement').src = selectedImageBase64;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function setDefaultLuxuryImage() {
+      selectedImageBase64 = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80";
+      document.getElementById('imagePreviewElement').src = selectedImageBase64;
+    }
+
+    // PROPERTY REGISTRATION HANDLER
+    function handlePropertySubmit(event) {
+      event.preventDefault();
+
+      // Gather form data
+      const dealCategory = document.querySelector('input[name="dealCategory"]:checked')?.value || "فروش";
+      let propCode = document.getElementById('formPropCode').value.trim();
+      if (!propCode) {
+        propCode = "QG-" + (Math.floor(100 + Math.random() * 900));
+      }
+      const price = document.getElementById('formPropPrice').value.trim();
+      const address = document.getElementById('formPropAddress').value.trim();
+      const details = document.getElementById('formPropDetails').value.trim();
+      const rooms = document.getElementById('formPropRooms').value;
+      const parking = document.querySelector('input[name="parkingOption"]:checked')?.value || "دارد";
+      const yard = document.querySelector('input[name="yardOption"]:checked')?.value || "ندارد";
+      const elevator = document.querySelector('input[name="elevatorOption"]:checked')?.value || "دارد";
+
+      const newProperty = {
+        id: Date.now(),
+        category: dealCategory,
+        code: propCode,
+        price: price,
+        address: address,
+        details: details,
+        rooms: rooms,
+        parking: parking,
+        yard: yard,
+        elevator: elevator,
+        image: selectedImageBase64
+      };
+
+      // Push to in-memory list
+      registeredProperties.unshift(newProperty);
+
+      // Reset form instantly
+      document.getElementById('propertyRegisterForm').reset();
+      // Keep sensible defaults
+      document.querySelector('input[name="dealCategory"][value="رهن و اجاره"]').checked = true;
+      document.getElementById('imagePreviewElement').src = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80";
+      selectedImageBase64 = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80";
+
+      // Show Success Alert
+      const alertBox = document.getElementById('formSuccessAlert');
+      const alertMsg = document.getElementById('formSuccessMsg');
+      alertMsg.textContent = `ملک با کد «${propCode}» و دسته «${dealCategory}» با موفقیت ثبت شد و در ویترین قرار گرفت.`;
+      alertBox.classList.remove('hidden');
+
+      setTimeout(() => {
+        alertBox.classList.add('hidden');
+      }, 5000);
+
+      // Re-render properties
+      renderPropertiesList();
+
+      // Smooth scroll to property section to show the new card
+      document.getElementById('featured-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // TABS AND FILTERING
+    function filterTab(category) {
+      currentActiveFilter = category;
+
+      // Update Tab Styles
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-primary text-on-primary transition-all shadow-sm";
+        } else {
+          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-surface-container text-on-surface-variant hover:text-white transition-all";
+        }
+      });
+
+      renderPropertiesList();
+    }
+
+    // Delete a property (admins only)
+    function deleteProperty(code) {
+      if (!currentAuthUser) {
+        alert('برای حذف آگهی ابتدا وارد حساب ادمین شوید.');
+        return;
+      }
+      const target = registeredProperties.find(item => String(item.code) === String(code));
+      if (!target) {
+        alert('آگهی موردنظر پیدا نشد.');
+        return;
+      }
+      if (!confirm(`آیا از حذف آگهی با کد «${code}» مطمئن هستید؟ این کار قابل بازگشت نیست.`)) return;
+      registeredProperties = registeredProperties.filter(item => String(item.code) !== String(code));
+      renderPropertiesList();
+      alert('آگهی با موفقیت حذف شد.');
+    }
+
+    // RENDER PROPERTY CARDS OR SHOW EMPTY PLACEHOLDER
+    function renderPropertiesList() {
+      const placeholder = document.getElementById('emptyPropertiesPlaceholder');
+      const grid = document.getElementById('propertiesGrid');
+
+      // Filtered properties
+      const filtered = registeredProperties.filter(item => {
+        if (currentActiveFilter === "همه") return true;
+        return item.category === currentActiveFilter;
+      });
+
+      if (filtered.length === 0) {
+        // Show empty placeholder
+        placeholder.classList.remove('hidden');
+        grid.classList.add('hidden');
+        grid.innerHTML = '';
+        return;
+      }
+
+      // Hide empty state, reveal grid
+      placeholder.classList.add('hidden');
+      grid.classList.remove('hidden');
+      grid.innerHTML = '';
+
+      filtered.forEach(item => {
+        const card = document.createElement('article');
+        card.className = "bg-surface-container rounded-2xl border border-outline/30 overflow-hidden hover:border-primary/50 transition-all flex flex-col group shadow-lg";
+
+        // Badges styling depending on category
+        let badgeColor = "bg-primary text-on-primary";
+        if (item.category === "رهن و اجاره") badgeColor = "bg-blue-500 text-white";
+        if (item.category === "خرید") badgeColor = "bg-emerald-500 text-white";
+        if (item.category === "فروش") badgeColor = "bg-amber-500 text-slate-950";
+
+        card.innerHTML = `
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+            <img src="${item.image}" alt="${item.details}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+            
+            <div class="absolute top-3 right-3 flex items-center gap-2">
+              <span class="px-3 py-1 rounded-lg ${badgeColor} text-xs font-bold shadow-md">
+                ${item.category}
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-md text-primary font-mono text-xs border border-primary/30">
+                کد: ${item.code}
+              </span>
+            </div>
+
+            <div class="absolute bottom-2 right-3 left-3 flex items-center justify-between">
+              <span class="text-xs bg-black/70 px-2.5 py-1 rounded-md text-white flex items-center gap-1">
+                <span class="material-symbols-outlined text-primary text-xs">bed</span>
+                ${item.rooms}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-5 flex flex-col flex-grow justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-1 text-on-surface-variant text-xs mb-2">
+                <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+                <span class="line-clamp-1">${item.address}</span>
+              </div>
+              <p class="text-sm font-semibold text-white line-clamp-2 leading-relaxed">
+                ${item.details}
+              </p>
+            </div>
+
+            <!-- Amenities Badges -->
+            <div class="flex flex-wrap items-center gap-2 py-2 border-y border-outline/20 text-xs text-on-surface-variant">
+              <span class="flex items-center gap-1 ${item.parking === 'دارد' ? 'text-primary' : 'opacity-40'}">
+                <span class="material-symbols-outlined text-sm">local_parking</span>
+                <span>پارکینگ: ${item.parking}</span>
+              </span>
+              <span class="text-outline/40">•</span>
+              <span class="flex items-center gap-1 ${item.yard === 'دارد' ? 'text-primary' : 'opacity-40'}">
+                <span class="material-symbols-outlined text-sm">yard</span>
+                <span>حیاط: ${item.yard}</span>
+              </span>
+              <span class="text-outline/40">•</span>
+              <span class="flex items-center gap-1 ${item.elevator === 'دارد' ? 'text-primary' : 'opacity-40'}">
+                <span class="material-symbols-outlined text-sm">elevator</span>
+                <span>آسانسور: ${item.elevator}</span>
+              </span>
+            </div>
+
+            <!-- Price and Contact -->
+            <div class="flex items-center justify-between pt-1">
+              <div>
+                <span class="block text-[11px] text-on-surface-variant">قیمت / شرایط</span>
+                <span class="text-sm sm:text-base font-bold text-primary">${item.price}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="deleteProperty('${String(item.code).replace(/'/g, "\\'")}')" class="${currentAuthUser ? 'inline-flex' : 'hidden'} items-center gap-1 px-3 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold transition-colors" title="حذف آگهی">
+                  <span class="material-symbols-outlined text-base">delete</span>
+                  حذف آگهی
+                </button>
+                <a href="tel:09104784166" class="p-2.5 rounded-xl bg-surface-container-high hover:bg-primary hover:text-on-primary text-primary transition-colors flex items-center justify-center border border-primary/20" title="تماس مستقیم">
+                  <span class="material-symbols-outlined text-lg">phone_in_talk</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      // By default no properties exist; empty placeholder will show.
+      renderPropertiesList();
+    });
+  </script>
+</body></html>
